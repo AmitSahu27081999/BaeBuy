@@ -50,7 +50,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'uicontroller';
+
+// frontend
 $route['index'] = 'uicontroller/index';
-$route['404_override'] = '';
+
+// authentication
+$route['login'] = 'uicontroller/login';
+$route['register'] = 'uicontroller/register';
+$route['verify_otp_page'] = 'uicontroller/verify_otp_page';
+$route['send_mobile_otp'] = 'uicontroller/send_mobile_otp';
+$route['check_mobile_otp'] = 'uicontroller/check_mobile_otp';
+
+// backend
 $route['dashboard'] = 'dashcontroller/dashboard';
+
+//
+$route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
