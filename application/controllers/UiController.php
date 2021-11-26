@@ -30,6 +30,8 @@ class UiController extends CI_Controller
 		$data['content'] = $this->load->view('auth/pages/login', $data, true);
 		$this->load->view('auth/layout/cst_vfy_layout', $data);
 	}
+
+	//Registration
 	public function register()
 	{
 		if ($this->input->server('REQUEST_METHOD') === 'GET') {
@@ -83,9 +85,26 @@ class UiController extends CI_Controller
 	public function completeverify(){
 		$data['title'] = "verify_email";
 		$this->customer_model->completeverify($_POST);
-		$data['content'] = $this->load->view('auth/pages/verifyotp', $data, true);
+		$data['content'] = $this->load->view('auth/pages/login', $data, true);
 		$this->load->view('auth/layout/cst_vfy_layout', $data);
-
 	}
 	
+	//Login
+	public function login_check(){
+		if ($this->input->server('REQUEST_METHOD') === 'GET') {
+			$data['title'] = "login_check";
+			$data['content'] = $this->load->view('auth/pages/login', $data, true);
+			$this->load->view('auth/layout/cst_vfy_layout', $data);
+		} elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+			$data['is_login']=$this->customer_model->login_check($_POST);
+			if($data['is_login']=='true'){
+				$data['content'] = $this->load->view('customer/admin/pages/home', $data, true);
+				$this->load->view('customer/admin/layout/customer_layout', $data);
+			}
+			else{
+				$data['content'] = $this->load->view('auth/pages/login', $data, true);
+				$this->load->view('auth/layout/cst_vfy_layout', $data);
+			}
+		}
+	}
 }

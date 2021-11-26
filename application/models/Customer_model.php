@@ -2,6 +2,7 @@
 
 class Customer_model extends CI_Model
 {
+    // Registration
     function register_user($data)
     {
         $name = $this->input->post('name');
@@ -98,6 +99,54 @@ class Customer_model extends CI_Model
         }
     }
     function completeverify($data){
-        
+        $last_id = $this->session->id;
+
+        $this->db->select("is_email_verified,is_mobile_verified");
+        $this->db->from("users");
+        $this->db->where('id', $last_id);
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $emailans = $ans->is_email_verified;
+            $mobileans = $ans->is_mobile_verified;
+        }
+
+        if ($emailans=='true'&&$mobileans=='true') {
+            $data = array(
+                'complete_verified' => 'true'
+            );
+            $this->db->where('id', $last_id);
+            $this->db->update('users', $data);
+        }
+        else{
+
+        }
+    }
+
+
+    // Login
+    function login_check($data){
+        $email = $this->input->post('login_email');
+        $password = $this->input->post('login_pass');
+
+        $this->db->select("email,password");
+        $this->db->from("users");
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $emailans = $ans->email;
+            $passans = $ans->password;
+            if($emailans==$email && $passans==$password){
+                $_SESSION['email'] = $email;
+                $_SESSION['password'] = $password;
+                $donelogin = 'true';
+                return $donelogin;
+            }
+            else{
+                $donelogin = 'false';
+            }
+        }
     }
 }

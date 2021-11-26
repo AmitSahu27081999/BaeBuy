@@ -64,9 +64,13 @@ $route['send_email_otp'] = 'uicontroller/send_email_otp';
 $route['check_email_otp'] = 'uicontroller/check_email_otp';
 $route['completeverify'] = 'uicontroller/completeverify';
 
+
+$route['login_check'] = 'uicontroller/login_check';
+
+
 // backend
 $route['dashboard'] = 'dashcontroller/dashboard';
 
-//
+// extras
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
