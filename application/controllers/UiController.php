@@ -66,6 +66,26 @@ class UiController extends CI_Controller
 		$data['content'] = $this->load->view('auth/pages/verifyotp', $data, true);
 		$this->load->view('auth/layout/cst_vfy_layout', $data);
 	}
+	public function send_email_otp()
+	{
+		$data['title'] = "verify_email";
+		$this->customer_model->upload_email_otp($_POST);
+		$data['content'] = $this->load->view('auth/pages/verifyotp', $data, true);
+		$this->load->view('auth/layout/cst_vfy_layout', $data);
+	}
+	public function check_email_otp()
+	{
+		$data['title'] = "verify_email";
+		$this->customer_model->check_email_otp($_POST);
+		$data['content'] = $this->load->view('auth/pages/verifyotp', $data, true);
+		$this->load->view('auth/layout/cst_vfy_layout', $data);
+	}
+	public function completeverify(){
+		$data['title'] = "verify_email";
+		$this->customer_model->completeverify($_POST);
+		$data['content'] = $this->load->view('auth/pages/verifyotp', $data, true);
+		$this->load->view('auth/layout/cst_vfy_layout', $data);
 
+	}
 	
 }

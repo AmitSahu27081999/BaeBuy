@@ -49,17 +49,55 @@ class Customer_model extends CI_Model
         $sql = $this->db->get();
         $result = $sql->result();
 
-        // echo $result;
-        var_dump($result);
-        // var_dump($ans);
-        die();
-        // die("afafa");
-        if ($result == $entotp) {
+        foreach($result as $ans){
+            $answer = $ans->mobile_otp;
+        }
+
+        if ($answer == $entotp) {
             $data = array(
                 'is_mobile_verified' => 'true'
             );
             $this->db->where('id', $last_id);
             $this->db->update('users', $data);
         }
+    }
+    function upload_email_otp()
+    {
+        $Random = rand(1000, 9999);
+        $last_id = $this->session->id;
+        $data = array(
+            'email_otp' => $Random
+        );
+        $this->db->where('id', $last_id);
+        $this->db->update('users', $data);
+        ?><script>
+            alert("<?= $Random ?>")
+        </script><?php
+    }
+    function check_email_otp($data)
+    {
+        $entotp = $this->input->post('enteredotp');
+        $last_id = $this->session->id;
+
+        $this->db->select("email_otp");
+        $this->db->from("users");
+        $this->db->where('id', $last_id);
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $answer = $ans->email_otp;
+        }
+
+        if ($answer == $entotp) {
+            $data = array(
+                'is_email_verified' => 'true'
+            );
+            $this->db->where('id', $last_id);
+            $this->db->update('users', $data);
+        }
+    }
+    function completeverify($data){
+        
     }
 }

@@ -60,6 +60,9 @@ $route['register'] = 'uicontroller/register';
 $route['verify_otp_page'] = 'uicontroller/verify_otp_page';
 $route['send_mobile_otp'] = 'uicontroller/send_mobile_otp';
 $route['check_mobile_otp'] = 'uicontroller/check_mobile_otp';
+$route['send_email_otp'] = 'uicontroller/send_email_otp';
+$route['check_email_otp'] = 'uicontroller/check_email_otp';
+$route['completeverify'] = 'uicontroller/completeverify';
 
 // backend
 $route['dashboard'] = 'dashcontroller/dashboard';
