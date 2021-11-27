@@ -149,4 +149,8 @@ class Customer_model extends CI_Model
             }
         }
     }
+
+
+    //Forgot password
+    
 }

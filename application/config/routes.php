@@ -68,6 +68,8 @@ $route['completeverify'] = 'uicontroller/completeverify';
 $route['login_check'] = 'uicontroller/login_check';
 
 
+
+
 // backend
 $route['dashboard'] = 'dashcontroller/dashboard';
 
