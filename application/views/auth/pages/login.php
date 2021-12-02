@@ -10,5 +10,6 @@
         </div>
         <button type="submit" class="btn btn-primary col-sm-3">LOGIN</button>
         <button type="button" class="btn btn-primary col-sm-3"><a href='register' class="text-light text-decoration-none anchor">REGISTER</a></button>
+        <a href='forgot_pass' class="text-dark text-decoration-none anchor">Forgot Password?</a>
     </form>
 </div>

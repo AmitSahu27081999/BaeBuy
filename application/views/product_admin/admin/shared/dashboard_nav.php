@@ -25,7 +25,7 @@
             </a>
             <ul>
                 <li><a href="login.html">Orders</a></li>
-                <li><a href="resister.html">Products</a></li>
+                <li><a href="products">Products</a></li>
                 <li><a href="forgot_pass.html">Transactions</a></li>
             </ul>
         </li>

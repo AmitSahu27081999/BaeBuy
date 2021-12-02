@@ -125,6 +125,127 @@ class Customer_model extends CI_Model
     }
 
 
+    //Forgot password
+
+    function forgot_send_mobile_otp($data)
+    {
+        $Random = rand(1000, 9999);
+        $enterednumber= $this->input->post('enterednumber');
+
+        $this->db->select("mobile");
+        $this->db->from("users");
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $mobileans = $ans->mobile;
+            if($mobileans==$enterednumber){
+                $data = array(
+                    'mobile_otp' => $Random
+                );
+                $this->db->where('mobile', $enterednumber);
+                $this->db->update('users', $data);
+                $_SESSION['mobile']=$enterednumber;
+                ?><script>
+                alert("<?= $Random ?>")
+                </script><?php
+            }
+        }
+    }
+    function forgot_check_mobile_otp($data)
+    {
+        $entotp = $this->input->post('enteredotp');
+        $enterednumber = $this->session->mobile;
+
+        $this->db->select("mobile_otp");
+        $this->db->from("users");
+        $this->db->where('mobile', $enterednumber);
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $answer = $ans->mobile_otp;
+        }
+
+        if ($answer == $entotp) {
+            $_SESSION['verify_method'] = 'mobilemethod';
+            return true;
+        }
+    }
+    function forgot_send_email_otp($data)
+    {
+        $Random = rand(1000, 9999);
+        $enteredemail= $this->input->post('enteredemail');
+
+        $this->db->select("email");
+        $this->db->from("users");
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $emailans = $ans->email;
+            if($emailans==$enteredemail){
+                $data = array(
+                    'email_otp' => $Random
+                );
+                $this->db->where('email', $enteredemail);
+                $this->db->update('users', $data);
+                $_SESSION['email']=$enteredemail;
+                ?><script>
+                alert("<?= $Random ?>")
+                </script><?php
+            }
+        }
+    }
+    function forgot_check_email_otp($data)
+    {
+        $entotp = $this->input->post('enteredotp');
+        $enteredemail = $this->session->email;
+
+
+        $this->db->select("email_otp");
+        $this->db->from("users");
+        $this->db->where('email', $enteredemail);
+        $sql = $this->db->get();
+        $result = $sql->result();
+
+        foreach($result as $ans){
+            $answer = $ans->email_otp;
+        }
+        if ($answer == $entotp) {
+            $_SESSION['verify_method'] = 'emailmethod';
+            return true;
+        }
+    }
+    function change_pass($data){
+        $new_pass = $this->input->post('new_pass');
+        $confirm_pass = $this->input->post('confirm_pass');
+        $method = $enteredemail = $this->session->verify_method;
+        if($method=='mobilemethod'){
+            $enterednumber = $this->session->mobile;
+            if($new_pass==$confirm_pass){
+                $data = array(
+                    'password' => $new_pass
+                );
+                $this->db->where('mobile', $enterednumber);
+                $this->db->update('users', $data);
+                return true;
+            }
+        }
+        else{
+            $enteredemail = $this->session->email;
+            if($new_pass==$confirm_pass){
+                $data = array(
+                    'password' => $new_pass
+                );
+                $this->db->where('email', $enteredemail);
+                $this->db->update('users', $data);
+                return true;
+            }
+        }
+    }
+
+
     // Login
     function login_check($data){
         $email = $this->input->post('login_email');
@@ -151,6 +272,6 @@ class Customer_model extends CI_Model
     }
 
 
-    //Forgot password
+    
     
 }

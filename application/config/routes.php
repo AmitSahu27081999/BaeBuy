@@ -63,6 +63,13 @@ $route['check_mobile_otp'] = 'uicontroller/check_mobile_otp';
 $route['send_email_otp'] = 'uicontroller/send_email_otp';
 $route['check_email_otp'] = 'uicontroller/check_email_otp';
 $route['completeverify'] = 'uicontroller/completeverify';
+$route['forgot_pass'] = 'uicontroller/forgot_pass';
+$route['forgot_email'] = 'uicontroller/forgot_email';
+$route['forgot_send_mobile_otp'] = 'uicontroller/forgot_send_mobile_otp';
+$route['forgot_check_mobile_otp'] = 'uicontroller/forgot_check_mobile_otp';
+$route['forgot_send_email_otp'] = 'uicontroller/forgot_send_email_otp';
+$route['forgot_check_email_otp'] = 'uicontroller/forgot_check_email_otp';
+$route['change_pass'] = 'uicontroller/change_pass';
 
 
 $route['login_check'] = 'uicontroller/login_check';
@@ -72,6 +79,8 @@ $route['login_check'] = 'uicontroller/login_check';
 
 // backend
 $route['dashboard'] = 'dashcontroller/dashboard';
+$route['products'] = 'dashcontroller/products';
+$route['add_products'] = 'dashcontroller/add_products';
 
 // extras
 $route['404_override'] = '';
