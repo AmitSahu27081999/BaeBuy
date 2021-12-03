@@ -53,29 +53,28 @@ $route['default_controller'] = 'uicontroller';
 
 // frontend
 $route['index'] = 'uicontroller/index';
+$route['men'] = 'uicontroller/men';
+$route['women'] = 'uicontroller/women';
+$route['about'] = 'uicontroller/about';
+$route['contact'] = 'uicontroller/contact';
+$route['cart'] = 'uicontroller/cart';
 
 // authentication
-$route['login'] = 'uicontroller/login';
-$route['register'] = 'uicontroller/register';
-$route['verify_otp_page'] = 'uicontroller/verify_otp_page';
-$route['send_mobile_otp'] = 'uicontroller/send_mobile_otp';
-$route['check_mobile_otp'] = 'uicontroller/check_mobile_otp';
-$route['send_email_otp'] = 'uicontroller/send_email_otp';
-$route['check_email_otp'] = 'uicontroller/check_email_otp';
-$route['completeverify'] = 'uicontroller/completeverify';
-$route['forgot_pass'] = 'uicontroller/forgot_pass';
-$route['forgot_email'] = 'uicontroller/forgot_email';
-$route['forgot_send_mobile_otp'] = 'uicontroller/forgot_send_mobile_otp';
-$route['forgot_check_mobile_otp'] = 'uicontroller/forgot_check_mobile_otp';
-$route['forgot_send_email_otp'] = 'uicontroller/forgot_send_email_otp';
-$route['forgot_check_email_otp'] = 'uicontroller/forgot_check_email_otp';
-$route['change_pass'] = 'uicontroller/change_pass';
-
-
-$route['login_check'] = 'uicontroller/login_check';
-
-
-
+$route['login'] = 'authcontroller/login';
+$route['register'] = 'authcontroller/register';
+$route['verify_otp_page'] = 'authcontroller/verify_otp_page';
+$route['send_mobile_otp'] = 'authcontroller/send_mobile_otp';
+$route['check_mobile_otp'] = 'authcontroller/check_mobile_otp';
+$route['send_email_otp'] = 'authcontroller/send_email_otp';
+$route['check_email_otp'] = 'authcontroller/check_email_otp';
+$route['completeverify'] = 'authcontroller/completeverify';
+$route['forgot_pass'] = 'authcontroller/forgot_pass';
+$route['forgot_email'] = 'authcontroller/forgot_email';
+$route['forgot_send_mobile_otp'] = 'authcontroller/forgot_send_mobile_otp';
+$route['forgot_check_mobile_otp'] = 'authcontroller/forgot_check_mobile_otp';
+$route['forgot_send_email_otp'] = 'authcontroller/forgot_send_email_otp';
+$route['forgot_check_email_otp'] = 'authcontroller/forgot_check_email_otp';
+$route['change_pass'] = 'authcontroller/change_pass';
 
 // backend
 $route['dashboard'] = 'dashcontroller/dashboard';

@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="mx-auto my-5" action="login_check" method="post" enctype="multipart/form-data">
+    <form class="mx-auto my-5" action="login" method="post" enctype="multipart/form-data">
         <div class="mb-3 row">
             <label for="exampleInputEmail1 " class="form-label col-sm-3">Email address</label>
             <input type="email" class="form-control  w-25" id="exampleInputEmail1" aria-describedby="emailHelp" name="login_email" required>

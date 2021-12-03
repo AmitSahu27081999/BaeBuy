@@ -302,3 +302,13 @@
 
 
 }());
+$(function(){
+	var url = window.location.href;
+
+	$(".top-menu .container .row .menu-1 ul a").each(function(){
+		if(url == (this.href)){
+			$(".txtclr").removeClass("active");
+			$(this).closest(".txtclr").addClass("active");
+		}
+	});
+});

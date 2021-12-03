@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Customer_model extends CI_Model
+class Auth_model extends CI_Model
 {
     // Registration
     function register_user($data)
@@ -270,8 +270,4 @@ class Customer_model extends CI_Model
             }
         }
     }
-
-
-    
-    
 }

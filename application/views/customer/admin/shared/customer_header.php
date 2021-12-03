@@ -23,9 +23,8 @@
         <div class="row">
             <div class="col-sm-12 text-left menu-1">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li class="has-dropdown">
-                        <a href="men.html">Men</a>
+                    <li class="active has-dropdown txtclr">
+                        <a href="<?= base_url('index')?>">Home</a>
                         <ul class="dropdown">
                             <li><a href="product-detail.html">Product Detail</a></li>
                             <li><a href="cart.html">Shopping Cart</a></li>
@@ -34,10 +33,11 @@
                             <li><a href="add-to-wishlist.html">Wishlist</a></li>
                         </ul>
                     </li>
-                    <li><a href="women.html">Women</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                    <li class="txtclr"><a href="<?= base_url('men')?>">Men</a></li>
+                    <li class="txtclr"><a href="<?= base_url('women')?>">Women</a></li>
+                    <li class="txtclr"><a href="<?= base_url('about')?>">About</a></li>
+                    <li class="txtclr"><a href="<?= base_url('contact')?>">Contact</a></li>
+                    <li class="cart"><a href="<?= base_url('cart')?>"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                 </ul>
             </div>
         </div>
