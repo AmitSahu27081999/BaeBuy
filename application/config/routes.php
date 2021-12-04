@@ -79,7 +79,7 @@ $route['change_pass'] = 'authcontroller/change_pass';
 // backend
 $route['dashboard'] = 'dashcontroller/dashboard';
 $route['products'] = 'dashcontroller/products';
-$route['add_products'] = 'dashcontroller/add_products';
+$route['products_add'] = 'dashcontroller/products_add';
 
 // extras
 $route['404_override'] = '';

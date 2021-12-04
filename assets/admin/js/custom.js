@@ -293,7 +293,7 @@ $(document).ready(function () {
             var editorId = 'editor_' + x;
             $(wrapper).append(`<div>
                                     <div class="col-1 p-0 mb-2 d-inline">
-                                        <input type="text" class="form-control" name="heading[]"
+                                        <input type="text" class="form-control" name="Size[]"
                                             placeholder="Enter Size" required>
                                     </div>
                                     <a href="#" class="btn btn-danger m-3 remove_field d-inline float-right">Remove</a>

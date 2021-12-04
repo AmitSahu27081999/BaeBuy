@@ -11,7 +11,7 @@
     <title>Finance</title>
 
     <?php
-    include_once APPPATH . "views/product_admin/admin/shared/dashboard_css.php";
+    include_once APPPATH . "views/product_admin/shared/dashboard_css.php";
     ?>
 </head>
 
@@ -21,14 +21,14 @@
 
     <!-- sidebar  -->
     <?php
-    include_once APPPATH . "views/product_admin/admin/shared/dashboard_nav.php";
+    include_once APPPATH . "views/product_admin/shared/dashboard_nav.php";
     ?>
     <!--/ sidebar  -->
 
     <section class="main_content dashboard_part">
         <!-- menu  -->
         <?php
-        include_once APPPATH . "views/product_admin/admin/shared/dashboard_header.php";
+        include_once APPPATH . "views/product_admin/shared/dashboard_header.php";
         ?>
         <!--/ menu  -->
 
@@ -38,13 +38,13 @@
 
         <!-- footer part -->
         <?php
-        include_once APPPATH . "views/product_admin/admin/shared/dashboard_footer.php";
+        include_once APPPATH . "views/product_admin/shared/dashboard_footer.php";
         ?>
     </section>
     <!-- main content part end -->
 
     <?php
-    include_once APPPATH . "views/product_admin/admin/shared/dashboard_js.php";
+    include_once APPPATH . "views/product_admin/shared/dashboard_js.php";
     ?>
 
 </body>
