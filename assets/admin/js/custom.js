@@ -251,61 +251,24 @@
 
 }(jQuery));
 
-// var countinput = 0;
-// $('.add_button').click(function() {
-//     countinput++;
-//     if(countinput==1){
-//         $("#size02").removeClass('d-none').addClass('d-block');
-//     }
-//     else if(countinput==2){
-//         $("#size03").removeClass('d-none').addClass('d-block');
-//     }
-//     else if(countinput==3){
-//         $("#size04").removeClass('d-none').addClass('d-block');
-//     }
-//     else if(countinput==4){
-//         $("#size05").removeClass('d-none').addClass('d-block');
-//         $('.add_button').removeClass('d-block').addClass('d-none');
-//     }
-// });
-// var counting = 0;
-// function addTextInput() {
-//     counting++;
-//     var x = document.createElement("INPUT");
-//     x.setAttribute("type", "text");
-//     x.setAttribute("name", "input"[counting]);
-//     // x.setAttribute("value", "You Just added a text field");
-//     document.getElementById("myForm").appendChild(x)
-//     alert("input"[counting]);
-// }
+$('.multi-field-wrapper').each(function () {
+    var $wrapper = $('.multi-fields', this);
+    $(".add-field", $(this)).click(function (e) {
+        console.log("ahfdafk");
 
-
-$(document).ready(function () {
-    var max_fields = 10; //maximum input boxes allowed
-    var wrapper = $(".input_fields_wrap"); //Fields wrapper
-    var add_button = $(".add_field_button"); //Add button ID
-
-    var x = 1; //initlal text box count
-    $(add_button).click(function (e) { //on add input button click
-        e.preventDefault();
-        if (x < max_fields) { //max input box allowed
-            x++; //text box increment
-            var editorId = 'editor_' + x;
-            $(wrapper).append(`<div>
-                                    <div class="col-1 p-0 mb-2 d-inline">
-                                        <input type="text" class="form-control" name="Size[]"
-                                            placeholder="Enter Size" required>
-                                    </div>
-                                    <a href="#" class="btn btn-danger m-3 remove_field d-inline float-right">Remove</a>
-                                </div>`); //add input box
-            CKEDITOR.replace(editorId, {
-                height: 200
-            });
-        }
+        $('.multi-field:first-child').clone(true).appendTo($wrapper).find('input,textarea').val('').focus();
     });
-    $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    })
-})
+    $('.multi-field .remove-field').click(function () {
+        if ($('.multi-field').length > 1)
+            $(this).parent('.multi-field').remove();
+    });
+});
+
+function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        var output = document.getElementById('output_image');
+        output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}

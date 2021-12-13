@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 08:28 AM
+-- Generation Time: Dec 13, 2021 at 11:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -54,10 +54,8 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `products` (
   `id` int(10) NOT NULL,
-  `product_id` varchar(50) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `brand` varchar(100) DEFAULT NULL,
-  `price` int(10) DEFAULT NULL,
   `gender` varchar(20) DEFAULT NULL,
   `category` varchar(50) DEFAULT NULL,
   `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -68,10 +66,14 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `product_id`, `name`, `brand`, `price`, `gender`, `category`, `created_on`, `updated_on`) VALUES
-(1, 'Shoe adidas', 'adidas rockstar', 'adidas', 40000, 'male', 'sneakers', '2021-12-03 17:04:53', '2021-12-03 17:04:53'),
-(4, 'shoe nike', 'nike sports', 'nike', 10000, 'male', 'sports', '2021-12-04 06:58:44', '2021-12-04 06:58:44'),
-(5, 'nike produc', 'nike name', 'nike', 12121, 'male', 'sports shoes', '2021-12-04 06:59:18', '2021-12-04 06:59:18');
+INSERT INTO `products` (`id`, `name`, `brand`, `gender`, `category`, `created_on`, `updated_on`) VALUES
+(1, 'adidas rockstar', 'adidas', 'male', 'sneakers', '2021-12-03 17:04:53', '2021-12-03 17:04:53'),
+(4, 'nike sports', 'nike', 'male', 'sports', '2021-12-04 06:58:44', '2021-12-04 06:58:44'),
+(5, 'nike name', 'nike', 'male', 'sports shoes', '2021-12-04 06:59:18', '2021-12-04 06:59:18'),
+(6, 'Amit Kumar Sahu', 'Puma', 'Male', 'Sports', '2021-12-10 05:46:47', '2021-12-10 05:46:47'),
+(8, 'adidas rockstar', 'adidas', 'Male', 'Sneakers', '2021-12-12 16:39:46', '2021-12-12 16:39:46'),
+(9, 'nike sports', 'nike', 'Unisex', 'sports', '2021-12-12 16:39:58', '2021-12-12 16:39:58'),
+(10, 'Amit Kumar Sahuu', 'Pumaa', 'Male', 'Boots', '2021-12-12 16:40:24', '2021-12-12 16:44:27');
 
 -- --------------------------------------------------------
 
@@ -81,6 +83,7 @@ INSERT INTO `products` (`id`, `product_id`, `name`, `brand`, `price`, `gender`, 
 
 CREATE TABLE `products_attributes` (
   `id` int(11) NOT NULL,
+  `product_id` varchar(255) DEFAULT NULL,
   `attribute_id` varchar(255) DEFAULT NULL,
   `attribute_name` varchar(255) DEFAULT NULL,
   `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -91,10 +94,24 @@ CREATE TABLE `products_attributes` (
 -- Dumping data for table `products_attributes`
 --
 
-INSERT INTO `products_attributes` (`id`, `attribute_id`, `attribute_name`, `created_on`, `updated_on`) VALUES
-(1, 'shoe-adidas', 'price', '2021-12-04 07:15:33', '2021-12-04 07:15:33'),
-(4, 'shoe-adidas', 'size', '2021-12-04 07:16:23', '2021-12-04 07:16:23'),
-(5, 'shoe-adidas', 'color', '2021-12-04 07:16:23', '2021-12-04 07:16:23');
+INSERT INTO `products_attributes` (`id`, `product_id`, `attribute_id`, `attribute_name`, `created_on`, `updated_on`) VALUES
+(1, NULL, 'shoe-adidas', 'price', '2021-12-04 07:15:33', '2021-12-04 07:15:33'),
+(4, NULL, 'shoe-adidas', 'size', '2021-12-04 07:16:23', '2021-12-04 07:16:23'),
+(5, NULL, 'shoe-adidas', 'color', '2021-12-04 07:16:23', '2021-12-04 07:16:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products_attributes_images`
+--
+
+CREATE TABLE `products_attributes_images` (
+  `id` int(11) NOT NULL,
+  `attribute_id` varchar(255) DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -115,24 +132,103 @@ CREATE TABLE `products_attributes_values` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `products_category`
+--
+
+CREATE TABLE `products_category` (
+  `id` int(11) NOT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products_category`
+--
+
+INSERT INTO `products_category` (`id`, `category`, `created_on`, `updated_on`) VALUES
+(1, 'Sneakers', '2021-12-07 13:15:49', '2021-12-07 13:41:46'),
+(2, 'Sports', '2021-12-07 13:16:02', '2021-12-07 13:41:53'),
+(3, 'Boot', '2021-12-07 13:16:16', '2021-12-13 06:57:54'),
+(4, 'Flip Flops', '2021-12-13 06:57:43', '2021-12-13 06:57:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products_images`
+--
+
+CREATE TABLE `products_images` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `image` text NOT NULL,
+  `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products_images`
+--
+
+INSERT INTO `products_images` (`id`, `product_id`, `image`, `created_on`, `updated_on`) VALUES
+(1, 1, 'adidas4.jpg', '2021-12-11 05:37:25', '2021-12-11 05:37:25'),
+(3, 1, 'twitlogo.png', '2021-12-11 05:38:13', '2021-12-13 10:19:11'),
+(4, 1, 'adidas5.jpg', '2021-12-11 05:38:13', '2021-12-11 05:38:13'),
+(6, 1, 'Dog1.jfif', '2021-12-11 05:38:13', '2021-12-11 05:38:13'),
+(7, 1, 'adidas3.jpg', '2021-12-11 05:38:42', '2021-12-11 05:38:42'),
+(8, 1, 'adidas5.jpg', '2021-12-11 05:38:42', '2021-12-11 05:38:42'),
+(9, 1, 'ca4.jpg', '2021-12-11 05:38:42', '2021-12-11 05:38:42'),
+(10, 1, 'Dog1.jfif', '2021-12-11 05:38:42', '2021-12-11 05:38:42'),
+(11, 6, 'Fblogo.png', '2021-12-11 05:40:52', '2021-12-11 05:40:52'),
+(12, 6, 'Shraddha_Kapoor.jpeg', '2021-12-11 05:40:52', '2021-12-11 05:40:52'),
+(13, 1, 'hamburger.jpg', '2021-12-13 08:05:00', '2021-12-13 08:05:00'),
+(14, 1, 'card1.jpg', '2021-12-13 08:05:00', '2021-12-13 08:05:00'),
+(15, 1, 'ca5.png', '2021-12-13 08:05:00', '2021-12-13 08:05:00'),
+(16, 3, 'twitlogo.png', '2021-12-13 10:02:28', '2021-12-13 10:02:28'),
+(17, 3, 'twitlogo.png', '2021-12-13 10:04:34', '2021-12-13 10:04:34'),
+(18, 4, 'adidas1.png', '2021-12-13 10:07:16', '2021-12-13 10:07:16'),
+(19, 2, 'ca1.jpg', '2021-12-13 10:11:08', '2021-12-13 10:11:08'),
+(20, 9, 'heading.jfif', '2021-12-13 10:26:49', '2021-12-13 10:26:49');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products_varients`
 --
 
 CREATE TABLE `products_varients` (
   `id` int(11) NOT NULL,
   `product_id` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `brand` varchar(50) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `gender` varchar(30) DEFAULT NULL,
-  `category` varchar(30) DEFAULT NULL,
   `size` varchar(30) DEFAULT NULL,
   `color` varchar(30) DEFAULT NULL,
-  `image` text DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
   `created_on` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products_varients`
+--
+
+INSERT INTO `products_varients` (`id`, `product_id`, `size`, `color`, `price`, `stock`, `created_on`, `updated_on`) VALUES
+(1, 'puma_one8', '8', 'black and white', NULL, 5, '2021-12-04 16:06:09', '2021-12-07 13:40:50'),
+(2, 'Shoe adidas', '7', 'red', 23456, 64, '2021-12-06 12:58:44', '2021-12-06 12:58:44'),
+(3, 'Shoe adidas', '7', 'red', 23456, 64, '2021-12-06 12:59:55', '2021-12-06 12:59:55'),
+(4, 'Shoe adidas', '3', 'green', 3454, 234, '2021-12-06 12:59:55', '2021-12-06 12:59:55'),
+(6, '6', '7.5', 'blue', 6899, 34, '2021-12-07 06:29:33', '2021-12-07 06:29:33'),
+(7, '6', '8.5', 'black-white', 7199, 43, '2021-12-07 06:29:33', '2021-12-07 06:29:33'),
+(8, '23', '5', 'white', 599, 345, '2021-12-07 07:36:11', '2021-12-07 07:36:11'),
+(9, 'Shoe adidas', '8', 'red', 3456, 64, '2021-12-07 07:39:08', '2021-12-07 07:39:08'),
+(10, 'nike_air_jordan', '8', 'red', 599, 5, '2021-12-07 07:44:29', '2021-12-07 07:44:29'),
+(16, NULL, '8', 'grey', 6899, 65, '2021-12-09 09:54:50', '2021-12-09 09:54:50'),
+(17, NULL, '8', 'grey', 6899, 65, '2021-12-09 09:56:23', '2021-12-09 09:56:23'),
+(18, '1', '7', 'grey', 234566, 65, '2021-12-10 10:51:24', '2021-12-13 06:55:13'),
+(19, '5', '7', 'red', 8999, 23, '2021-12-10 10:52:30', '2021-12-10 10:52:30'),
+(20, '5', '8', 'brown', 68991, 23, '2021-12-10 10:52:30', '2021-12-13 06:56:06'),
+(21, '5', '8', 'white', 6999, 45, '2021-12-10 10:52:30', '2021-12-10 10:52:30'),
+(22, '18', '7', 'grey', 234566, 65, '2021-12-13 06:54:34', '2021-12-13 06:54:34'),
+(23, '1', '9', 'bhura', 459, 76, '2021-12-13 10:35:53', '2021-12-13 10:35:53');
 
 -- --------------------------------------------------------
 
@@ -289,9 +385,27 @@ ALTER TABLE `products_attributes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `products_attributes_images`
+--
+ALTER TABLE `products_attributes_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products_attributes_values`
 --
 ALTER TABLE `products_attributes_values`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products_category`
+--
+ALTER TABLE `products_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products_images`
+--
+ALTER TABLE `products_images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -347,7 +461,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products_attributes`
@@ -356,16 +470,34 @@ ALTER TABLE `products_attributes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `products_attributes_images`
+--
+ALTER TABLE `products_attributes_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products_attributes_values`
 --
 ALTER TABLE `products_attributes_values`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `products_category`
+--
+ALTER TABLE `products_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `products_images`
+--
+ALTER TABLE `products_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `products_varients`
 --
 ALTER TABLE `products_varients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `product_attributes`

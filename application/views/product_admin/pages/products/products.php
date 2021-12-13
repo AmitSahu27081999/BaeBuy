@@ -5,14 +5,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Product_id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Brand</th>
-            <th scope="col">Price</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Category</th>
-            <th scope="col" class="colspan-2">Action</th>
+            <th >Id</th>
+            <th >Name</th>
+            <th >Brand</th>
+            <th >Gender</th>
+            <th>Category</th>
+            <th colspan="4" class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,17 +19,24 @@
         ?>
             <tr>
                 <td><?= $store->id; ?></td>
-                <td><?= $store->product_id; ?></td>
+                <!-- <td><?php if ($store->logo) { ?>
+                            <img src="<?= base_url('assets/uploads/') . $store->logo; ?>" style="width: 70px;height: 70px;">
+                        <?php } ?></td> -->
                 <td><?= $store->name; ?></td>
                 <td><?= $store->brand; ?></td>
-                <td><?= $store->price; ?></td>
                 <td><?= $store->gender; ?></td>
                 <td><?= $store->category; ?></td>
                 <td>
-                    <a href="<?= base_url("dashboard/slider_edit/$store->id"); ?>" class="btn btn-warning px-3">Edit </a>
+                    <a href="<?= base_url("varients/$store->id"); ?>" class="btn btn-success px-3">Show Varients </a>
                 </td>
                 <td>
-                    <a href="<?= base_url("dashboard/slider_delete/$store->id"); ?>" class="btn btn-danger">Delete</a>
+                    <a href="<?= base_url("varients_add/$store->id"); ?>" class="btn btn-success px-3">Add Varients </a>
+                </td>
+                <td>
+                    <a href="<?= base_url("product_edit/$store->id"); ?>" class="btn btn-warning px-3">Update </a>
+                </td>
+                <td>
+                    <a href="<?= base_url("product_delete/$store->id"); ?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         <?php

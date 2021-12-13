@@ -7374,3 +7374,8 @@ canvas#highlights {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+#output_image {
+  max-width: 100px;
+  margin: 1rem;
+}

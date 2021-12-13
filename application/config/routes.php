@@ -80,6 +80,22 @@ $route['change_pass'] = 'authcontroller/change_pass';
 $route['dashboard'] = 'dashcontroller/dashboard';
 $route['products'] = 'dashcontroller/products';
 $route['products_add'] = 'dashcontroller/products_add';
+$route['product_edit/(:any)'] = 'dashcontroller/product_edit/$1';
+$route['product_delete/(:any)'] = 'dashcontroller/product_delete/$1';
+
+$route['varients/(:any)'] = 'dashcontroller/varients/$1';
+$route['varients_add/(:any)'] = 'dashcontroller/varients_add/$1';
+$route['varient_edit/(:any)'] = 'dashcontroller/varient_edit/$1';
+$route['varient_delete/(:any)'] = 'dashcontroller/varient_delete/$1';
+
+$route['images/(:any)'] = 'dashcontroller/images/$1';
+$route['images_add/(:any)'] = 'dashcontroller/images_add/$1';
+$route['image_edit/(:any)'] = 'dashcontroller/image_edit/$1';
+$route['image_delete/(:any)'] = 'dashcontroller/image_delete/$1';
+
+$route['category'] = 'dashcontroller/category';
+$route['category_add'] = 'dashcontroller/category_add';
+$route['category_update/(:any)'] = 'dashcontroller/category_update/$1';
 
 // extras
 $route['404_override'] = '';

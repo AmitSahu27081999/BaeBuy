@@ -2,7 +2,7 @@
 
 class Dashboard_model extends CI_Model
 {
-    // Products
+    // Products ---------------------------------------------------------------------
     function select()
     {
         $sql = $this->db->query('SELECT * FROM products');
@@ -10,52 +10,74 @@ class Dashboard_model extends CI_Model
     }
     function products_add($data)
     {
-        $product_id = $this->input->post('product_id');
-        $name = $this->input->post('name');
-        $comp_name = $this->input->post('comp_name');
-        $price = $this->input->post('price');
-        $gender = $this->input->post('gender');
-        $category = $this->input->post('category');
-        
-        $data = array(
-            'product_id'=> $product_id,
-            'name' => $name,
-            'brand' => $comp_name,
-            'price' => $price,
-            'gender' => $gender,
-            'category' => $category,
-        );
-        
         $this->db->insert('products', $data);
-        $insertId = $this->db->insert_id();
-        $_SESSION['id'] = $insertId;
-        
-        // $size = $this->input->post('Size[]');
     }
-    function update($id)
+    function select_edit($id)
     {
-        $product_id = $this->input->post('product_id');
-        $name = $this->input->post('name');
-        $comp_name = $this->input->post('comp_name');
-        $price = $this->input->post('price');
-        $gender = $this->input->post('gender');
-        $category = $this->input->post('category');
-        
-        $data = array(
-            'product_id'=> $product_id,
-            'name' => $name,
-            'brand' => $comp_name,
-            'price' => $price,
-            'gender' => $gender,
-            'category' => $category,
-        );
-
+        $sql = $this->db->query("SELECT * FROM products where id = $id");
+        return $sql->result();
+    }
+    function product_update($data,$id)
+    {
         $this->db->where('id', $id);
         $this->db->update('products', $data);
     }
-    function delete($id)
+    function product_delete($id)
     {
         $this->db->where('id', $id);
         $this->db->delete('products');
+    }
+
+    //Varients--------------------------------------------------------------------------
+
+    function show_varients($id)
+    {
+        $sql = $this->db->query("SELECT * FROM products_varients where product_id = $id");
+        return $sql->result();
+    }
+    function select_varient_edit($id)
+    {
+        $sql = $this->db->query("SELECT * FROM products_varients where id = $id");
+        return $sql->result();
+    }
+    function varients_add($data2)
+    {
+        $this->db->insert('products_varients', $data2);
+    }
+    function varient_update($data,$id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('products_varients', $data);
+    }
+    function varient_delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('products_varients');
+    }
+
+    //Image------------------------------------------------------------------------------
+    function show_images($id)
+    {
+        $sql = $this->db->query("SELECT * FROM products_images where product_id = $id");
+        return $sql->result();
+    }
+    function select_Image_edit($id)
+    {
+        $sql = $this->db->query("SELECT * FROM products_images where id = $id");
+        return $sql->result();
+    }
+    function images_add($data)
+    {
+        $this->db->insert('products_images', $data);
+    }
+    function image_update($data,$id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('products_images', $data);
+    }
+    function image_delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('products_images');
     }
 }
