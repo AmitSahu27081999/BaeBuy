@@ -129,15 +129,16 @@ class DashController extends CI_Controller
 				);
 				$this->dashboard_model->varients_add($data1, $id);
 			}
-			redirect("products");
+			redirect("varients/$id");
 		}
 	}
-	public function varient_edit($id)
+	public function varient_edit($product_id,$id='')
 	{
 		if ($this->input->server('REQUEST_METHOD') === 'GET') {
 			$data['title'] = "Edit Varient";
+			$data['product_id'] = $product_id;
 			$data['id'] = $id;
-			$data['select_varient_edit'] =  $this->dashboard_model->select_varient_edit($id);
+			$data['select_varient_edit'] = $this->dashboard_model->select_varient_edit($id);;
 			$data['content'] = $this->load->view('product_admin/pages/products/varient_edit', $data, true);
 			$this->load->view('product_admin/layout/dashboard_layout', $data);
 		} elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
@@ -146,9 +147,7 @@ class DashController extends CI_Controller
 			$price = $this->input->post('price');
 			$stock = $this->input->post('stock');
 			$size = $this->input->post('size');
-
 			$length = count($this->input->post('size'));
-
 			for ($i = 0; $i < $length; $i++) {
 				$data1 = array(
 					'size' => $size[$i],
@@ -158,27 +157,28 @@ class DashController extends CI_Controller
 				);
 				$this->dashboard_model->varient_update($data1, $id);
 			}
-			redirect("products");
+			redirect("varients/$product_id");
 		}
 	}
-	public function varient_delete($id)
+	public function varient_delete($id,$product_id)
 	{
 		$data['title'] = "Delete Varient";
 		$this->dashboard_model->Varient_delete($id);
-		redirect("products");
+		redirect("varients/$product_id");
 	}
 
 	//Product Images ---------------------------------------------------------------------------------
-	public function images($id)
+	public function images($id,$product_id="")
 	{
 		$data['title'] = "Show Images";
 		$data['id'] = $id;
+		$data['product_id'] = $product_id;
 		$data['selected_images'] =  $this->dashboard_model->show_images($id);
 		$data['content'] = $this->load->view('product_admin/pages/products/images', $data, true);
 		$this->load->view('product_admin/layout/dashboard_layout', $data);
 	}
 	public function images_add($id)
-	{
+	{	
 		if ($this->input->server('REQUEST_METHOD') === 'GET') {
 			$data['title'] = "Add_Image";
 			$data['id'] = $id;
@@ -194,20 +194,20 @@ class DashController extends CI_Controller
 				move_uploaded_file($filename, $destination);
 				$img[$i] = $_FILES["image"]["name"][$i];
 				$data2 = array(
-					'product_id' => $id,
+					'varient_id' => $id,
 					'image' => $img[$i]
 				);
 				$this->dashboard_model->images_add($data2);
 			}
-			redirect("products");
+			redirect("images/$id");
 		}
 	}
-	public function image_edit($id)
+	public function image_edit($product_id,$id='')
 	{
 		if ($this->input->server('REQUEST_METHOD') === 'GET') {
 			$data['title'] = "Add_Image";
+			$data['product_id'] = $product_id;
 			$data['id'] = $id;
-			// die('edit show');
 			$data['content'] = $this->load->view('product_admin/pages/products/image_edit', $data, true);
 			$this->load->view('product_admin/layout/dashboard_layout', $data);
 		} elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
@@ -224,14 +224,14 @@ class DashController extends CI_Controller
 				);
 				$this->dashboard_model->image_update($data2,$id);
 			}
-			redirect("products");
+			redirect("images/$product_id");
 		}
 	}
-	public function image_delete($id)
+	public function image_delete($product_id,$id)
 	{
 		$data['title'] = "Delete Image";
 		$this->dashboard_model->image_delete($id);
-		redirect("products");
+		redirect("images/$product_id");
 	}
 
 	//Category-----------------------------------------------------------------------------------------

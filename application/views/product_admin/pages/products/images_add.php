@@ -4,7 +4,7 @@
             <div class="multi-field-wrapper" style="margin: 0">
                 <div class="multi-fields">
                     <div class="row multi-field">
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <label for>Logo</label>
                             <input type="file" accept="image/*" onchange="preview_image(event)" class="form-control-file" name="image[]" multiple>
                             <!-- <img id="output_image"> -->

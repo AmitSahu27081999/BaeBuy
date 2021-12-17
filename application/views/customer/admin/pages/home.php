@@ -1,7 +1,7 @@
 <aside id="colorlib-hero">
     <div class="flexslider">
         <ul class="slides">
-            <li style="background-image: url(<?= base_url("/assets/app/images/img_bg_1.jpg");?>);">
+            <li style="background-image: url(<?= base_url("/assets/app/images/img_bg_1.jpg"); ?>);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </li>
-            <li style="background-image: url(<?= base_url("/assets/app/images/img_bg_2.jpg");?>);">
+            <li style="background-image: url(<?= base_url("/assets/app/images/img_bg_2.jpg"); ?>);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </li>
-            <li style="background-image: url(<?= base_url("/assets/app/images/img_bg_3.jpg");?>);">
+            <li style="background-image: url(<?= base_url("/assets/app/images/img_bg_3.jpg"); ?>);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-sm-6 text-center">
                 <div class="featured">
-                    <a href="#" class="featured-img" style="background-image: url(<?= base_url("/assets/app/images/men.jpg");?>);"></a>
+                    <a href="#" class="featured-img" style="background-image: url(<?= base_url("/assets/app/images/men.jpg"); ?>);"></a>
                     <div class="desc">
                         <h2><a href="#">Shop Men's Collection</a></h2>
                     </div>
@@ -82,7 +82,7 @@
             </div>
             <div class="col-sm-6 text-center">
                 <div class="featured">
-                    <a href="#" class="featured-img" style="background-image: url(<?= base_url("/assets/app/images/women.jpg");?>);"></a>
+                    <a href="#" class="featured-img" style="background-image: url(<?= base_url("/assets/app/images/women.jpg"); ?>);"></a>
                     <div class="desc">
                         <h2><a href="#">Shop Women's Collection</a></h2>
                     </div>
@@ -100,185 +100,30 @@
             </div>
         </div>
         <div class="row row-pb-md">
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-1.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+            <?php foreach ($selected as $store) {
+                // var_dump($store->images);
+            ?>
+                <div class="col-lg-3 mb-4 text-center">
+                    <a href="product-detail/<?= $store->id?>">
+                        <div class="product-entry border">
+                            <a href="product-detail/<?= $store->id?>" class="prod-img">
+                                <?php
+                                if (sizeof($store->varient[0]->images) > 0) {
+                                ?>
+                                    <img src="<?= base_url("assets/uploads/") . $store->varient[0]->images[0]->image; ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                <?php
+                                }
+                                ?>
+                            </a>
+                            <div class="desc">
+                                <h2><?= $store->name ?></h2>
+                                <h2><?= $store->brand ?></h2>
+                                <span class="price">Rs <?= $store->varient[0]->price; ?></span>
+                            </div>
+                        </div>
                     </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-2.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Minam Meaghan</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-3.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Men's Taja Commissioner</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-4.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Russ Men's Sneakers</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-5.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-6.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-7.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-8.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-9.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-10.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-11.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-12.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-13.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-14.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-15.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="<?= base_url("/assets/app/images/item-16.jpg");?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                        <span class="price">$139.00</span>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
@@ -297,19 +142,19 @@
         </div>
         <div class="row">
             <div class="col partner-col text-center">
-                <img src="<?= base_url("/assets/app/images/brand-1.jpg");?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= base_url("/assets/app/images/brand-1.jpg"); ?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= base_url("/assets/app/images/brand-2.jpg");?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= base_url("/assets/app/images/brand-2.jpg"); ?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= base_url("/assets/app/images/brand-3.jpg");?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= base_url("/assets/app/images/brand-3.jpg"); ?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= base_url("/assets/app/images/brand-4.jpg");?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= base_url("/assets/app/images/brand-4.jpg"); ?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= base_url("/assets/app/images/brand-5.jpg");?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= base_url("/assets/app/images/brand-5.jpg"); ?>" class="img-fluid" alt="Free html4 bootstrap 4 template">
             </div>
         </div>
     </div>

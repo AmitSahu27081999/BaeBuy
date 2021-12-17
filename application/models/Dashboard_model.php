@@ -8,6 +8,11 @@ class Dashboard_model extends CI_Model
         $sql = $this->db->query('SELECT * FROM products');
         return $sql->result();
     }
+    function select_by_id($id)
+    {
+        $sql = $this->db->query("SELECT * FROM products WHERE id=$id");
+        return $sql->row();
+    }
     function products_add($data)
     {
         $this->db->insert('products', $data);
@@ -58,7 +63,7 @@ class Dashboard_model extends CI_Model
     //Image------------------------------------------------------------------------------
     function show_images($id)
     {
-        $sql = $this->db->query("SELECT * FROM products_images where product_id = $id");
+        $sql = $this->db->query("SELECT * FROM products_images where varient_id = $id");
         return $sql->result();
     }
     function select_Image_edit($id)

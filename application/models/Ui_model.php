@@ -3,8 +3,8 @@
 class Ui_model extends CI_Model
 {
 
-    function register_user($data)
+    function show($data)
     {
-        
+
     }
 }

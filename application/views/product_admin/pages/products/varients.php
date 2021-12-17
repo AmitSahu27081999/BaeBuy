@@ -14,9 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <a href="<?= base_url("varients_add/$id");?>" class="btn btn-success px-3 mb-3">Add Varients</a>
-            <a href="<?= base_url("images/$id"); ?>" class="ml-5 btn btn-primary px-3 mb-3">Show Images</a>
-            <a href="<?= base_url("images_add/$id");?>" class="ml-5 btn btn-danger px-3 mb-3">Add images</a>
+            <a href="<?= base_url("varients_add/$id"); ?>"class="btn btn-success px-3 mb-3">Add Varients</a>
             <?php
             foreach ($selected as $store) {
             ?>
@@ -27,10 +25,16 @@
                     <td><?= $store->price; ?></td>
                     <td><?= $store->stock; ?></td>
                     <td>
-                        <a href="<?= base_url("varient_edit/$store->id"); ?>" class="btn btn-warning px-3">Edit </a>
+                        <a href="<?= base_url("images/$store->id/$id"); ?>" class="btn btn-primary">Show Images</a>
                     </td>
                     <td>
-                        <a href="<?= base_url("varient_delete/$store->id"); ?>" class="btn btn-danger">Delete</a>
+                        <a href="<?= base_url("images_add/$store->id"); ?>" class="btn btn-danger">Add images</a>
+                    </td>
+                    <td>
+                        <a href="<?= base_url("varient_edit/$id/$store->id"); ?>" class="btn btn-warning">Edit </a>
+                    </td>
+                    <td>
+                        <a href="<?= base_url("varient_delete/$store->id/$id"); ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php

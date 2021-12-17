@@ -2,47 +2,37 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <p class="bread"><span><a href="<?= base_url('index')?>">Home</a></span> / <span>Product Details</span></p>
+                <p class="bread"><span><a href="<?= base_url('index') ?>">Home</a></span> / <span>Product Details</span></p>
             </div>
         </div>
     </div>
 </div>
-
-
 <div class="colorlib-product">
     <div class="container">
         <div class="row row-pb-lg product-detail-wrap">
             <div class="col-sm-8">
-                <div class="owl-carousel">
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
+                <?php foreach ($selected as $key => $store) {
+                    if($key===0){ ?>
+                    <div class="owl-carousel">
+                        <?php
+                        if (sizeof($store->images) > 0) {
+                            foreach ($store->images as $imgKey => $img) {
+                        ?>
+                                <div class="item">
+                                    <div class="product-entry border">
+                                        <a href="#" class="prod-img">
+                                            <img src="<?= base_url("assets/uploads/") . $img->image; ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        <?php
+                        }
+                        ?>
                     </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <?php }} ?>
             </div>
             <div class="col-sm-4">
                 <div class="product-desc">

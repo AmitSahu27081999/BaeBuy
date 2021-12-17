@@ -30,5 +30,4 @@
         </div>
     </div>
     <button class="col-md-12 w-25 btn btn-primary my-5" type="submit">Submit</button>
-    <a href="<?= base_url("images_add/$id"); ?>" class="btn btn-danger">Add images</a>
 </form>

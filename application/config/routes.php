@@ -58,6 +58,7 @@ $route['women'] = 'uicontroller/women';
 $route['about'] = 'uicontroller/about';
 $route['contact'] = 'uicontroller/contact';
 $route['cart'] = 'uicontroller/cart';
+$route['product-detail/(:any)'] = 'uicontroller/product_detail/$1';
 
 // authentication
 $route['login'] = 'authcontroller/login';
@@ -85,13 +86,16 @@ $route['product_delete/(:any)'] = 'dashcontroller/product_delete/$1';
 
 $route['varients/(:any)'] = 'dashcontroller/varients/$1';
 $route['varients_add/(:any)'] = 'dashcontroller/varients_add/$1';
-$route['varient_edit/(:any)'] = 'dashcontroller/varient_edit/$1';
-$route['varient_delete/(:any)'] = 'dashcontroller/varient_delete/$1';
+$route['varient_edit/(:num)/(:num)'] = 'dashcontroller/varient_edit/$1/$2';
+$route['varient_edit/(:num)'] = 'dashcontroller/varient_edit/$1';
+$route['varient_delete/(:any)/(:any)'] = 'dashcontroller/varient_delete/$1/$2';
 
-$route['images/(:any)'] = 'dashcontroller/images/$1';
+$route['images/(:num)/(:num)'] = 'dashcontroller/images/$1/$2';
+$route['images/(:num)'] = 'dashcontroller/images/$1';
 $route['images_add/(:any)'] = 'dashcontroller/images_add/$1';
-$route['image_edit/(:any)'] = 'dashcontroller/image_edit/$1';
-$route['image_delete/(:any)'] = 'dashcontroller/image_delete/$1';
+$route['image_edit/(:num)/(:num)'] = 'dashcontroller/image_edit/$1/$2';
+$route['image_edit/(:num)'] = 'dashcontroller/image_edit/$1';
+$route['image_delete/(:any)/(:any)'] = 'dashcontroller/image_delete/$1/$2';
 
 $route['category'] = 'dashcontroller/category';
 $route['category_add'] = 'dashcontroller/category_add';
