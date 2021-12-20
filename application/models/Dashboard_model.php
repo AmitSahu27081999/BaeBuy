@@ -85,4 +85,24 @@ class Dashboard_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('products_images');
     }
+    public function fetch_income()
+    {
+        $sql =  $this->db->count_all_results('users');
+        return $sql;
+    }
+    public function fetch_user()
+    {
+        $sql =  $this->db->count_all_results('users');
+        return $sql;
+    }
+    public function fetch_products()
+    {
+        $sql =  $this->db->count_all_results('products');
+        return $sql;
+    }
+    public function fetch_orders()
+    {
+        $sql =  $this->db->count_all_results('orders');
+        return $sql;
+    }
 }

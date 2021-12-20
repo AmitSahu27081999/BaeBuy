@@ -20,10 +20,14 @@ class DashController extends CI_Controller
 	public function dashboard()
 	{
 		$data['title'] = "Dashboard";
-
+		$data['income'] = $this->dashboard_model->fetch_income();
+		$data['user'] = $this->dashboard_model->fetch_user();
+		$data['products'] = $this->dashboard_model->fetch_products();
+		$data['orders'] = $this->dashboard_model->fetch_orders();
 		$data['content'] = $this->load->view('product_admin/pages/home/home', $data, true);
 		$this->load->view('product_admin/layout/dashboard_layout', $data);
 	}
+
 
 	//Products   ----------------------------------------------------------------
 
