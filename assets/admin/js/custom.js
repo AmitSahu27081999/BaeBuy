@@ -266,9 +266,36 @@ $('.multi-field-wrapper').each(function () {
 
 function preview_image(event) {
     var reader = new FileReader();
-    reader.onload = function() {
+    reader.onload = function () {
         var output = document.getElementById('output_image');
         output.src = reader.result;
     }
     reader.readAsDataURL(event.target.files[0]);
 }
+
+// var mySelect = new SlimSelect({
+//     select: '#single-optgroups',
+//     placeholder: 'Placeholder Text Here',
+//     showSearch: false,
+//     searchText: 'Sorry couldnt find anything',
+//     beforeOnChange: (info) => {
+//         console.log(info)
+//         return false // this will stop propagation
+//     },
+//     onChange: (info) => {
+//         console.log(info)
+//     }
+// });
+
+// mySelect.set('value')
+
+// select.open()
+// select.close()
+
+$(".chosen-select").chosen({
+    no_results_text: "Oops, nothing found!"
+})
+
+$(".chosen-select").chosen({
+    no_results_text: "Oops, nothing found!"
+})

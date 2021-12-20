@@ -311,4 +311,14 @@ $(function(){
 			$(this).closest(".txtclr").addClass("active");
 		}
 	});
+	var li;
+});
+// function li_color_change(li){
+// 	console.log(li);
+// 	$(".block-26 ul li").addClass('var_sel');
+// }
+
+$("#ul_hu_mai").on('click', '.var_size', function () {
+	console.log("akhkah");
+	var bv = $(this).closest('li').addClass('var_sel');
 });

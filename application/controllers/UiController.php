@@ -23,11 +23,11 @@ class UiController extends CI_Controller
 	{
 		$data['title'] = "BaeBuy";
 
-		$selected =  $this->dashboard_model->select();
+		$selected =  $this->ui_model->select();
 		foreach ($selected as $key => $value) {
-			$selected[$key]->varient =  $this->dashboard_model->show_varients($value->id);
+			$selected[$key]->varient =  $this->ui_model->show_varients($value->id);
 			foreach ($selected[$key]->varient as $key1 => $value1) {
-				$selected[$key]->varient[$key1]->images = $this->dashboard_model->show_images($value1->id);
+				$selected[$key]->varient[$key1]->images = $this->ui_model->show_images($value1->id);
 			}
 		}
 		$data['selected'] = $selected;
@@ -69,20 +69,45 @@ class UiController extends CI_Controller
 		$data['content'] = $this->load->view('customer/admin/pages/cart', $data, true);
 		$this->load->view('customer/admin/layout/customer_layout', $data);
 	}
-	public function product_detail($id)
+	public function product_detail($id,$varient_id="")
 	{
 		$data['title'] = "Product Detail";
-
-		$selected =  $this->dashboard_model->select_by_id($id);
-		$selected->varient =  $this->dashboard_model->show_varients($selected->id);
-		foreach ($selected->varient as $key => $value) {
-			$selected->varient[$key]->images = $this->dashboard_model->show_images($value->id);
-		}
+		
+		// var_dump('Product---------------------------------------------------------------------------');
+		$selected =  $this->ui_model->select_product_by_id($id);
 		// var_dump($selected);
-		// die;
 
+		// var_dump('$varient_id-------------------------------------------------------------------------');
+		if($varient_id==""){
+			$varient_id =  $this->ui_model->select_varient($id);
+			$varient_id = $varient_id[0]->id;
+		}
+		// var_dump($varient_id);
+
+		// var_dump('Choosen_varient---------------------------------------------------------------------');
+		$varient =  $this->ui_model->select_varient_by_id($selected->id,$varient_id);
+		foreach ($varient as $key => $value) {
+			$varient[$key]->images = $this->ui_model->show_images($value->id);
+		}
+		// var_dump($varient);
+
+		// var_dump('$varients---------------------------------------------------------------------------');
+		$varients =  $this->ui_model->show_varients($selected->id);
+		
+		foreach ($varients as $key => $value) {
+			$varients[$key]->images = $this->ui_model->show_images_by_id($value->id);
+		}
+		// var_dump($varients);
+		
+		// PUT-----------------------
 		$data['selected'] = $selected;
-
+		$data['varient_id'] = $varient_id;
+		$data['varient'] = $varient;
+		$data['varients'] = $varients;
+		// var_dump('DATA------------------------------------------------------------------------------');
+		// var_dump($data);
+		// die;
+		
 		$data['content'] = $this->load->view('customer/admin/pages/product_detail', $data, true);
 		$this->load->view('customer/admin/layout/customer_layout', $data);
 	}

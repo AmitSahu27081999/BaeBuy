@@ -7,19 +7,37 @@
                         <div class="row multi-field">
                             <div class="col-sm-2">
                                 <label for>Size</label>
-                                <input type="text" class="form-control form-control-alternative" name="size[]" value="<?= $store->size ?>">
+                                <select class="form-control chosen-select" name="size[]" multiple>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
                             </div>
                             <div class="col-sm-2">
                                 <label for>Color</label>
-                                <input type="text" class="form-control form-control-alternative" name="color[]" value="<?= $store->color ?>">
+                                <input type="text" class="form-control form-control-alternative" name="color" value="<?= $store->color ?>">
                             </div>
                             <div class="col-sm-2">
                                 <label for>Price</label>
-                                <input type="text" class="form-control form-control-alternative" name="price[]" value="<?= $store->price ?>">
+                                <input type="text" class="form-control form-control-alternative" name="price" value="<?= $store->price ?>">
                             </div>
                             <div class="col-sm-2">
                                 <label for>Stock</label>
-                                <input type="text" class="form-control form-control-alternative" name="stock[]" value="<?= $store->stock ?>">
+                                <input type="text" class="form-control form-control-alternative" name="stock" value="<?= $store->stock ?>">
+                            </div>
+                            <div class="col-sm-10">
+                                <label for>Short Description</label>
+                                <textarea type="text" class="form-control form-control-alternative" name="sdec"><?= $store->sdec ?></textarea>
+                            </div>
+                            <div class="col-sm-10">
+                                <label for>Full Descripton</label>
+                                <textarea type="text" class="form-control form-control-alternative" name="fdec"><?= $store->fdec ?></textarea>
+                            </div>
+                            <div class="col-sm-10">
+                                <label for>Manufacturer</label>
+                                <textarea type="text" class="form-control form-control-alternative" name="manu"><?= $store->manu ?></textarea>
                             </div>
                         </div>
                     </div>

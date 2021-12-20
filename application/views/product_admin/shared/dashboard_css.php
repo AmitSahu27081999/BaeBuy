@@ -27,6 +27,10 @@
 <!-- metarial icon css -->
 <link rel="stylesheet" href="<?= base_url("/assets/admin/vendors/material_icon/material-icons.css");?>">
 
+<!-- Yans Css -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.9.0/slimselect.min.css" rel="stylesheet" media="all">
+<!--Rawgit Css-->
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 <!-- menu css  -->
 <link rel="stylesheet" href="<?= base_url("/assets/admin/css/metisMenu.css");?>">
 <!-- style CSS -->

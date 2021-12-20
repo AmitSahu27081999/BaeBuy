@@ -6,26 +6,47 @@
                     <div class="row multi-field">
                         <div class="col-sm-2">
                             <label for>Size</label>
-                            <input type="text" class="form-control form-control-alternative" name="size[]">
+                            <select class="form-control chosen-select" name="size[]" multiple>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
                         </div>
                         <div class="col-sm-2">
                             <label for>Color</label>
-                            <input type="text" class="form-control form-control-alternative" name="color[]">
+                            <input type="text" class="form-control form-control-alternative" name="color">
                         </div>
                         <div class="col-sm-2">
                             <label for>Price</label>
-                            <input type="text" class="form-control form-control-alternative" name="price[]">
+                            <input type="text" class="form-control form-control-alternative" name="price">
                         </div>
                         <div class="col-sm-2">
                             <label for>Stock</label>
-                            <input type="text" class="form-control form-control-alternative" name="stock[]">
+                            <input type="text" class="form-control form-control-alternative" name="stock">
                         </div>
-                        <div class="col-sm-2 remove-field">
+                        <div class="col-sm-10">
+                            <label for>Short Description</label>
+                            <textarea type="text" class="form-control form-control-alternative" name="sdec">
+                            </textarea>
+                        </div>
+                        <div class="col-sm-10">
+                            <label for>Full Descripton</label>
+                            <textarea type="text" class="form-control form-control-alternative" name="fdec">
+                        </textarea>
+                        </div>
+                        <div class="col-sm-10">
+                            <label for>Manufacturer</label>
+                            <textarea type="text" class="form-control form-control-alternative" name="manu">
+                        </textarea>
+                        </div>
+                        <!-- <div class="col-sm-2 remove-field">
                             <button type="button" class="btn btn-danger mt-4">-</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-                <button type="button" class="btn btn-success add-field" style="position: absolute;right: 20px;">+</button>
+                <!-- <button type="button" class="btn btn-success add-field" style="position: absolute;right: 20px;">+</button> -->
             </div>
         </div>
     </div>

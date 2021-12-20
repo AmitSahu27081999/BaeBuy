@@ -101,7 +101,6 @@
         </div>
         <div class="row row-pb-md">
             <?php foreach ($selected as $store) {
-                // var_dump($store->images);
             ?>
                 <div class="col-lg-3 mb-4 text-center">
                     <a href="product-detail/<?= $store->id?>">
@@ -110,7 +109,7 @@
                                 <?php
                                 if (sizeof($store->varient[0]->images) > 0) {
                                 ?>
-                                    <img src="<?= base_url("assets/uploads/") . $store->varient[0]->images[0]->image; ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                    <img src="<?= base_url("assets/uploads/") . $store->varient[0]->images[0]->image; ?>" alt="Free html5 bootstrap 4 template" height="253px" width="253px">
                                 <?php
                                 }
                                 ?>

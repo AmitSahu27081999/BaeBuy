@@ -12305,3 +12305,63 @@ input[type="text"] {
   bottom: -8px;
   font-size: 18px;
 }
+
+.block-28 {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.block-28 ul, .block-28 ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.block-28 ul li {
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  float: left;
+  display: table;
+  text-align: center;
+  /* background: #cccccc; */
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.block-28 ul li a {
+  display: table-cell;
+  vertical-align: middle;
+  /* color: #fff; */
+  padding: 0;
+}
+
+.block-28 ul li a:hover {
+  background: #616161;
+}
+
+.block-28 h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+img.img-var-logo{
+  height: 70px;
+  width: 100px;
+  object-fit: cover;
+}
+
+/* .var-size input:checked + label {
+  background-color: #ab576c;
+} */
+.var_sel{
+  background-color: pink!important;
+}
+.var_unsel{
+  background-color: #cccccc!important;
+}

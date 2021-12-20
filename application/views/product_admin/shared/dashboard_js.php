@@ -41,6 +41,8 @@
 
 <!-- <script src="<?= base_url("/assets/admin/vendors/apex_chart/apexcharts.js");?>"></script> -->
 
+<!-- Ragwit JS -->
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <!-- custom js -->
 <script src="<?= base_url("/assets/admin/js/custom.js");?>"></script>
 

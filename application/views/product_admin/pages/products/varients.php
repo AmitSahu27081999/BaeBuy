@@ -10,6 +10,9 @@
                 <th>Color</th>
                 <th>Price</th>
                 <th>Stock</th>
+                <th>Short Description</th>
+                <th>Full Description</th>
+                <th>Manufacturer</th>
                 <th colspan="4" class="text-center">Action</th>
             </tr>
         </thead>
@@ -24,6 +27,9 @@
                     <td><?= $store->color; ?></td>
                     <td><?= $store->price; ?></td>
                     <td><?= $store->stock; ?></td>
+                    <td><?= $store->sdec; ?></td>
+                    <td><?= $store->fdec; ?></td>
+                    <td><?= $store->manu; ?></td>
                     <td>
                         <a href="<?= base_url("images/$store->id/$id"); ?>" class="btn btn-primary">Show Images</a>
                     </td>

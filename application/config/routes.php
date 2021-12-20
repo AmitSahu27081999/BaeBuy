@@ -59,6 +59,7 @@ $route['about'] = 'uicontroller/about';
 $route['contact'] = 'uicontroller/contact';
 $route['cart'] = 'uicontroller/cart';
 $route['product-detail/(:any)'] = 'uicontroller/product_detail/$1';
+$route['product-detail/(:any)/(:any)'] = 'uicontroller/product_detail/$1/$2';
 
 // authentication
 $route['login'] = 'authcontroller/login';
